@@ -1,8 +1,8 @@
-#  goit-react-hw-02-feedback
+# goit-react-hw-04-feedback 
 
-Part one of two of the homework for React events, state and forms topics. 
+This is refactored application [goit-react-hw-02-feedback](https://github.com/oleksandr-romashko/goit-react-hw-02-feedback) using React hooks instead of classes.
 
-Part two ("**goit-react-hw-02-phonebook**") of this homework may be found [here](https://github.com/oleksandr-romashko/goit-react-hw-02-phonebook).
+This is a homework for React events, state, forms and React hooks topics. 
 
 ## Live page
 
@@ -19,17 +19,15 @@ The live page for this repository can be viewed at [GitHub Pages](https://oleksa
 
 [React project template](https://github.com/goitacademy/react-homework-template/blob/main/README.en.md) is used as a starting point for your application (more information about how to start-up with such a project may be found at the template repo description or [here in a Readme file](./README.en.md)).
 
-  * The `goit-react-hw-02-feedback` repository is created.
-  * When submitting homework, there are two links: to the source files and the live pages of each assignment on `GitHub Pages'.
-  * The repository header has a link to the live page on `GitHub pages`.
+  * The `goit-react-hw-04-feedback` repository is created.
+  * Refactor the "[Feedback Widget](https://github.com/oleksandr-romashko/goit-react-hw-02-feedback)" task code from the second module using React-hooks.
+  * When submitting homework, there are two links: to the source files and the live page using `GitHub Pages'.
   * When visiting the work page (GitHub pages) of the assignment, there are no errors or warnings in the console.
-  * There is a separate file for each component in the `src/components` folder.
+  * For each component has a separate folder with a React-component file and styles.
   * The `propTypes` are described for all components.
-  * Everything that a component expects in the form of props is delivered to it when it is called.
-  * The JS code is clean and clear, using `Prettier`.
-  * Styling is done by CSS modules or Styled Components.
+  * Component names are clear, descriptive.
 
-## Task 1 - Feedback Widget
+## Task - Feedback Widget
 
 Like most companies, Expresso Cafe collects reviews from its customers. Your task is to create an application to collect statistics. There are only three options for feedback: good, neutral, and bad.
 
