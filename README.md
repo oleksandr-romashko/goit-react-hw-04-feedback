@@ -1,4 +1,6 @@
-# goit-react-hw-04-feedback 
+# Feedback Widget
+
+## goit-react-hw-04-feedback 
 
 This is refactored application [goit-react-hw-02-feedback](https://github.com/oleksandr-romashko/goit-react-hw-02-feedback) using React hooks instead of classes.
 
