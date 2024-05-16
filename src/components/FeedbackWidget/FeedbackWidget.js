@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { useState } from 'react';
 
 import { WidgetWrapper } from './FeedbackWidget.styled';
 import Section from 'components/Section/Section';
@@ -16,49 +16,42 @@ import countPosFeedbackPercentage from 'helpers/countPositiveFeedbackPercentage'
  *
  * Displays statistic for each category.
  */
-class FeedbackWidget extends Component {
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  };
+const FeedbackWidget = () => {
+  const [state, setState] = useState({good: 0, neutral: 0, bad: 0});
 
   /**
    * Adds feedback to a specific feedback category.
    * @param {object} evt React crossbrowser SyntheticEvent that wraps the native Event.
    */
-  onLeaveFeedback = evt => {
+  const onLeaveFeedback = evt => {
     const category = evt.target.dataset.category;
-    category && this.setState(prev => ({ [category]: prev[category] + 1 }));
+    category && setState(prev => ({ ...prev, [category]: prev[category] + 1 }));
   };
 
-  render() {
-    const { good, neutral, bad } = this.state;
-    const totalFeedbackCount = countTotalFeedback({ ...this.state });
-    return (
-      <WidgetWrapper>
-        <Section title="Please leave your feedback">
-          <FeedbackOptions
-            options={Object.keys(this.state)}
-            onLeaveFeedback={this.onLeaveFeedback}
+  const totalFeedbackCount = countTotalFeedback({ state });
+  return (
+    <WidgetWrapper>
+      <Section title="Please leave your feedback">
+        <FeedbackOptions
+          options={Object.keys(state)}
+          onLeaveFeedback={onLeaveFeedback}
+        />
+      </Section>
+      <Section title="Statistics">
+        {totalFeedbackCount === 0 ? (
+          <Notification message="There is no feedback" />
+        ) : (
+          <Statistics
+            good={state.good}
+            neutral={state.neutral}
+            bad={state.bad}
+            total={totalFeedbackCount}
+            positivePercentage={countPosFeedbackPercentage({ ...state })}
           />
-        </Section>
-        <Section title="Statistics">
-          {totalFeedbackCount === 0 ? (
-            <Notification message="There is no feedback" />
-          ) : (
-            <Statistics
-              good={good}
-              neutral={neutral}
-              bad={bad}
-              total={totalFeedbackCount}
-              positivePercentage={countPosFeedbackPercentage({ ...this.state })}
-            />
-          )}
-        </Section>
-      </WidgetWrapper>
-    );
-  }
+        )}
+      </Section>
+    </WidgetWrapper>
+  );
 }
 
 export default FeedbackWidget;
