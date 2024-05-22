@@ -28,7 +28,7 @@ const FeedbackWidget = () => {
     category && setState(prev => ({ ...prev, [category]: prev[category] + 1 }));
   };
 
-  const totalFeedbackCount = countTotalFeedback({ state });
+  const totalFeedbackCount = countTotalFeedback(state);
   return (
     <WidgetWrapper>
       <Section title="Please leave your feedback">
